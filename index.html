@@ -3,8 +3,48 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
+  <input type="text" id="country">
+  <input type="text" id="zip">
+  <p id="message"></p>
+<script>
+  $(document).ready(function(){
 
+  
+
+    $("#zip").keyup(function(){
+      var country = $("#country").val();
+      var zip = $("#zip").val();
+     if(country == "USA"){
+
+      if(/^\d{5}([\-]?\d{4})?$/.test(zip)){
+        $("#message").text(" ")
+      }else{
+        $("#message").text("Zipcode Is Invalid")
+      }
+
+     }
+     else if(country == "CANADA")
+     {
+
+      if(/^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/.test(zip)){
+        $("#message").text(" ")
+      }else{
+        $("#message").text("Zipcode Is Invalid")
+      }
+
+    
+
+     }
+      console.log(country);
+      console.log(zip)
+
+    })
+  })
+</script>
 </body>
 </html>
